@@ -1,0 +1,14 @@
+apiVersion: v1
+entries:
+  console:
+  - apiVersion: v2
+    appVersion: 1.16.0
+    created: "2022-09-14T11:06:16.344456-05:00"
+    description: A Helm chart for the Kubefirst Console
+    digest: be2dbb1f5036620984fb93b096b59303cb847edf092b6d9975e021dbaf783edc
+    name: console
+    type: application
+    urls:
+    - https://kubefirst.github.io/charts/console-0.1.0.tgz
+    version: 0.1.0
+generated: "2022-09-14T11:06:16.342583-05:00"
