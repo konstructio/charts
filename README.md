@@ -8,3 +8,9 @@
    - To update the index.yaml reference: `helm repo index --url https://kubefirst.github.io/charts/ .`
 3. Open a PR against the `gh-pages` branch
 4. Once the PR is merged, You can see the new package version here [Kubefirst Chart Repository](https://kubefirst.github.io/charts/index.yaml)
+
+
+### Adding helm chart to you repo
+
+helm repo add api https://kubefirst.github.io/charts/
+helm repo add console https://kubefirst.github.io/charts/
