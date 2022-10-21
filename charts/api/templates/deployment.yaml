@@ -43,13 +43,22 @@ spec:
               containerPort: 3000
               protocol: TCP
           livenessProbe:
-            httpGet:
-              path: /
-              port: http
+            tcpSocket:
+              port: 3000
+            initialDelaySeconds: 10
+            periodSeconds: 5
+            successThreshold: 1
+            failureThreshold: 1
+            timeoutSeconds: 30
           readinessProbe:
             httpGet:
-              path: /
+              path: /healthz
               port: http
+            initialDelaySeconds: 10
+            periodSeconds: 20
+            successThreshold: 1
+            failureThreshold: 3
+            timeoutSeconds: 30
           resources:
             {{- toYaml .Values.resources | nindent 12 }}
       {{- with .Values.nodeSelector }}
