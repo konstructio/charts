@@ -8,7 +8,7 @@ image:
   repository: public.ecr.aws/kubefirst/console
   pullPolicy: IfNotPresent
   # Overrides the image tag whose default is the chart appVersion.
-  tag: "1.0.4"
+  tag: "1.0.5"
 
 imagePullSecrets: []
 nameOverride: ""
