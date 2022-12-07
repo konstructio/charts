@@ -3,7 +3,7 @@ entries:
   api:
   - apiVersion: v2
     appVersion: 1.16.0
-    created: "2022-11-11T16:55:49.11137-05:00"
+    created: "2022-12-07T14:00:52.288795-05:00"
     description: A Helm chart for Kubernetes
     digest: 1296cdeadb757e52465bbf78224059111f83c0ca1653dbba6b5004106d7bb20a
     name: api
@@ -13,7 +13,7 @@ entries:
     version: 0.1.3
   - apiVersion: v2
     appVersion: 1.16.0
-    created: "2022-11-11T16:55:49.110959-05:00"
+    created: "2022-12-07T14:00:52.28848-05:00"
     description: A Helm chart for Kubernetes
     digest: 964bd78126231ea7a054a9663ddabb18e4d4c127c9f52f4c97eb03de408c7b22
     name: api
@@ -23,7 +23,7 @@ entries:
     version: 0.1.2
   - apiVersion: v2
     appVersion: 1.16.0
-    created: "2022-11-11T16:55:49.109711-05:00"
+    created: "2022-12-07T14:00:52.288156-05:00"
     description: A Helm chart for Kubernetes
     digest: 076a65b0998306c6f5ec4c791770adf59004c7acdcf88551e57e127b46d0f1f5
     name: api
@@ -33,7 +33,7 @@ entries:
     version: 0.1.1
   - apiVersion: v2
     appVersion: 1.16.0
-    created: "2022-11-11T16:55:49.109267-05:00"
+    created: "2022-12-07T14:00:52.287827-05:00"
     description: A Helm chart for Kubernetes
     digest: 480d1f228e96be8f66f4253d9586f84fa933b82cbad634433493b9f6bab011cf
     name: api
@@ -43,7 +43,7 @@ entries:
     version: 0.1.0
   - apiVersion: v2
     appVersion: 8c5fd0ea4e0523c953b317fc5fe9fa89dac9688f
-    created: "2022-11-11T16:55:49.108716-05:00"
+    created: "2022-12-07T14:00:52.287369-05:00"
     description: A Helm chart for Kubernetes
     digest: 47b6af52b92c1dd763579673a50ebaf240f215ab26fe23e07eff566f47feab25
     name: api
@@ -54,7 +54,17 @@ entries:
   console:
   - apiVersion: v2
     appVersion: 1.17.0
-    created: "2022-11-11T16:55:49.116863-05:00"
+    created: "2022-12-07T14:00:52.29476-05:00"
+    description: A Helm chart for the Kubefirst Console
+    digest: afffc961f470e3ab35b553b17b1f93ab00055f8d9afb394301af21b7fa00fb24
+    name: console
+    type: application
+    urls:
+    - https://kubefirst.github.io/charts/console-2.0.1.tgz
+    version: 2.0.1
+  - apiVersion: v2
+    appVersion: 1.17.0
+    created: "2022-12-07T14:00:52.294372-05:00"
     description: A Helm chart for the Kubefirst Console
     digest: 5a65be7feb30c63037287e90e9dee7023ad8c0710535aced3609149a173da0ef
     name: console
@@ -64,7 +74,7 @@ entries:
     version: 2.0.0
   - apiVersion: v2
     appVersion: 1.17.0
-    created: "2022-11-11T16:55:49.116503-05:00"
+    created: "2022-12-07T14:00:52.294111-05:00"
     description: A Helm chart for the Kubefirst Console
     digest: 9ea534bb02cc00f7a1cb20e6504132363db631cf506eb0aa0e5ea33dfd9bf670
     name: console
@@ -74,7 +84,7 @@ entries:
     version: 1.0.5
   - apiVersion: v2
     appVersion: 1.17.0
-    created: "2022-11-11T16:55:49.116062-05:00"
+    created: "2022-12-07T14:00:52.293802-05:00"
     description: A Helm chart for the Kubefirst Console
     digest: 9669ef812debf92285c4171978acd9c8f14f1ad2ed35ad0d8bf7c17efe57d08f
     name: console
@@ -84,7 +94,7 @@ entries:
     version: 1.0.4
   - apiVersion: v2
     appVersion: 1.17.0
-    created: "2022-11-11T16:55:49.115674-05:00"
+    created: "2022-12-07T14:00:52.293515-05:00"
     description: A Helm chart for the Kubefirst Console
     digest: 8bc0c9232b5107c2084fa135e0e48a800ed9c4d916e1ce20dfdc64ffb806e30e
     name: console
@@ -94,7 +104,7 @@ entries:
     version: 1.0.3
   - apiVersion: v2
     appVersion: 1.17.0
-    created: "2022-11-11T16:55:49.115369-05:00"
+    created: "2022-12-07T14:00:52.292008-05:00"
     description: A Helm chart for the Kubefirst Console
     digest: 1dbea5ad6427fd18c8ea87c2cf96c4901dbf375b27e854b05c5dacb3b6734ad3
     name: console
@@ -104,7 +114,7 @@ entries:
     version: 1.0.2
   - apiVersion: v2
     appVersion: 1.16.0
-    created: "2022-11-11T16:55:49.11504-05:00"
+    created: "2022-12-07T14:00:52.291735-05:00"
     description: A Helm chart for the Kubefirst Console
     digest: fde70beb60e2e1ab2c3b91cc8e1c88974043c5ca2e1b1e9b8fcadd56a42a24f2
     name: console
@@ -114,7 +124,7 @@ entries:
     version: 1.0.1
   - apiVersion: v2
     appVersion: 1.16.0
-    created: "2022-11-11T16:55:49.114712-05:00"
+    created: "2022-12-07T14:00:52.291467-05:00"
     description: A Helm chart for the Kubefirst Console
     digest: 1395496bcd036b45b76553dbf7fbfd6752980e9f8443cbb1a06f338071414d2f
     name: console
@@ -124,7 +134,7 @@ entries:
     version: 1.0.0
   - apiVersion: v2
     appVersion: 1.16.0
-    created: "2022-11-11T16:55:49.114375-05:00"
+    created: "2022-12-07T14:00:52.291175-05:00"
     description: A Helm chart for the Kubefirst Console
     digest: fe5000a087fd1e08cc3db2c9cf42f1fffce5a555086507e93058d5bb193440b3
     name: console
@@ -134,7 +144,7 @@ entries:
     version: 0.2.6
   - apiVersion: v2
     appVersion: 1.16.0
-    created: "2022-11-11T16:55:49.114006-05:00"
+    created: "2022-12-07T14:00:52.29092-05:00"
     description: A Helm chart for the Kubefirst Console
     digest: 9c674b8537a1b73adf08315c7456f7f04df07ba5b0cf1cfc92c7f09d8d75e96a
     name: console
@@ -144,7 +154,7 @@ entries:
     version: 0.2.5
   - apiVersion: v2
     appVersion: 1.16.0
-    created: "2022-11-11T16:55:49.113626-05:00"
+    created: "2022-12-07T14:00:52.290638-05:00"
     description: A Helm chart for the Kubefirst Console
     digest: f016f2e694f4bbbd10b50bd1aa984c9a22ef690e164a9f957d405be9e3dcaf97
     name: console
@@ -154,7 +164,7 @@ entries:
     version: 0.2.4
   - apiVersion: v2
     appVersion: 1.16.0
-    created: "2022-11-11T16:55:49.113326-05:00"
+    created: "2022-12-07T14:00:52.290393-05:00"
     description: A Helm chart for the Kubefirst Console
     digest: 32a0b10d90f9dced3cc7be6cc0ae39cccd2483b17e60ed182daf5138e168e4f4
     name: console
@@ -164,7 +174,7 @@ entries:
     version: 0.2.3
   - apiVersion: v2
     appVersion: 1.16.0
-    created: "2022-11-11T16:55:49.113009-05:00"
+    created: "2022-12-07T14:00:52.290102-05:00"
     description: A Helm chart for the Kubefirst Console
     digest: 86084282cacc7bedf8355212452165f83bc838657d7e0d540bf3ab23e652cbfd
     name: console
@@ -174,7 +184,7 @@ entries:
     version: 0.2.2
   - apiVersion: v2
     appVersion: 1.16.0
-    created: "2022-11-11T16:55:49.112673-05:00"
+    created: "2022-12-07T14:00:52.289808-05:00"
     description: A Helm chart for the Kubefirst Console
     digest: 1d19b22ff3c48e2ff6ffbe670d5d8d7c489e5cfa2629ba092d67fd8c4320a51c
     name: console
@@ -184,7 +194,7 @@ entries:
     version: 0.2.1
   - apiVersion: v2
     appVersion: 1.16.0
-    created: "2022-11-11T16:55:49.11234-05:00"
+    created: "2022-12-07T14:00:52.289516-05:00"
     description: A Helm chart for the Kubefirst Console
     digest: 47430d9684d58a7448bb50faf3e59380263d8847d6cc71ac79b8635ba2735e4d
     name: console
@@ -194,7 +204,7 @@ entries:
     version: 0.2.0
   - apiVersion: v2
     appVersion: 1.16.0
-    created: "2022-11-11T16:55:49.111864-05:00"
+    created: "2022-12-07T14:00:52.289147-05:00"
     description: A Helm chart for the Kubefirst Console
     digest: be2dbb1f5036620984fb93b096b59303cb847edf092b6d9975e021dbaf783edc
     name: console
@@ -202,4 +212,4 @@ entries:
     urls:
     - https://kubefirst.github.io/charts/console-0.1.0.tgz
     version: 0.1.0
-generated: "2022-11-11T16:55:49.107993-05:00"
+generated: "2022-12-07T14:00:52.286717-05:00"
