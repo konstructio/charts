@@ -231,6 +231,6 @@ entries:
     name: helm-k1-watcher-operator
     type: application
     urls:
-    - https://kubefirst.github.io/kubefirst-watcher-operator/helm-k1-watcher-operator-0.6.0.tgz
+    - https://kubefirst.github.io/charts/helm-k1-watcher-operator-0.6.0.tgz
     version: 0.6.0    
 generated: "2022-12-07T14:00:52.286717-05:00"
