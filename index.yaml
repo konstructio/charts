@@ -223,4 +223,14 @@ entries:
     urls:
     -  https://kubefirst.github.io/charts/helm-k1-watcher-operator-0.4.0.tgz
     version: 0.4.0    
+  - apiVersion: v2
+    appVersion: 1.16.0
+    created: "2022-12-15T00:04:39.283681796Z"
+    description: A Helm chart for Kubernetes
+    digest: 65b7a7d91c7b2049852af2dcb95e69b5b052d30d6fe92f7737003236c9d30a9a
+    name: helm-k1-watcher-operator
+    type: application
+    urls:
+    - https://kubefirst.github.io/kubefirst-watcher-operator/helm-k1-watcher-operator-0.6.0.tgz
+    version: 0.6.0    
 generated: "2022-12-07T14:00:52.286717-05:00"
