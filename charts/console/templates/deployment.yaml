@@ -55,7 +55,7 @@ spec:
               path: /api/healthz
               port: http
             initialDelaySeconds: 10
-            periodSeconds: 600
+            periodSeconds: 5
             successThreshold: 1
             failureThreshold: 3
             timeoutSeconds: 30
