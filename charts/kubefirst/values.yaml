@@ -1,0 +1,12 @@
+console:
+  image:
+    repository: public.ecr.aws/kubefirst/console
+  env:
+  - name: API_URL
+    value: "https://kubefirst-api.example.com/api"
+kubefirst-api:
+  image:
+    repository: public.ecr.aws/kubefirst/kubefirst-api
+  kubefirst-api:
+    host: https://kubefirst-api.example.com/api
+    console: https://kubefirst.example.com
