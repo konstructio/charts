@@ -29,11 +29,11 @@ jobs:
       - name: Inject slug/short variables
         uses: rlespinasse/github-slug-action@v4
 
-      - name: Publish Helm chart
-        uses: goodsmileduck/helm-push-action@v2
-        env:
-          SOURCE_DIR: './charts'
-          CHART_FOLDER: "kubefirst"
-          CHARTMUSEUM_URL: 'https://charts.kubefirst.com'
-          CHARTMUSEUM_USER: '${{ secrets.CHARTMUSEUM_USER }}'
-          CHARTMUSEUM_PASSWORD: ${{ secrets.CHARTMUSEUM_PASSWORD }}
+      - name: Push Helm Chart to ChartMuseum
+        uses: bsord/helm-push@4.2.0
+        with:
+          username: '${{ secrets.CHARTMUSEUM_USER }}'
+          password: ${{ secrets.CHARTMUSEUM_PASSWORD }}
+          registry-url: 'https://charts.kubefirst.com'
+          chart-folder: charts
+          update-dependencies: true
