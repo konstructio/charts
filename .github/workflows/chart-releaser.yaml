@@ -26,9 +26,15 @@ jobs:
         with:
           version: v3.10.0
 
+      - name: Inject slug/short variables
+        uses: rlespinasse/github-slug-action@v4
+
       - name: Publish Helm chart
-        uses: stefanprodan/helm-gh-pages@master
-        with:
-          token: "${{ secrets.GH_TOKEN }}"
-          charts_url: https://kubefirst.github.io
-          repository: charts
+        uses: goodsmileduck/helm-push-action@v2
+        env:
+          SOURCE_DIR: './charts'
+          CHART_FOLDER: "${GITHUB_REPOSITORY_NAME_PART}"
+          FORCE: 'True'
+          CHARTMUSEUM_URL: 'https://charts.kubefirst.com'
+          CHARTMUSEUM_USER: '${{ secrets.CHARTMUSEUM_USER }}'
+          CHARTMUSEUM_PASSWORD: ${{ secrets.CHARTMUSEUM_PASSWORD }}
