@@ -30,7 +30,7 @@ jobs:
         uses: rlespinasse/github-slug-action@v4
 
       - name: Push Helm Chart to ChartMuseum
-        uses: bsord/helm-push@4.2.0
+        uses: bsord/helm-push@4.1.0
         with:
           username: '${{ secrets.CHARTMUSEUM_USER }}'
           password: ${{ secrets.CHARTMUSEUM_PASSWORD }}
