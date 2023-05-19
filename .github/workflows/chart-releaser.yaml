@@ -35,5 +35,5 @@ jobs:
           username: '${{ secrets.CHARTMUSEUM_USER }}'
           password: ${{ secrets.CHARTMUSEUM_PASSWORD }}
           registry-url: 'https://charts.kubefirst.com'
-          chart-folder: charts
+          chart-folder: charts/kubefirst
           update-dependencies: true
