@@ -26,7 +26,9 @@ jobs:
         with:
           version: v3.10.0
 
-      - name: Run chart-releaser
-        uses: helm/chart-releaser-action@v1.4.1
-        env:
-          CR_TOKEN: "${{ secrets.GITHUB_TOKEN }}"
+      - name: Publish Helm chart
+        uses: stefanprodan/helm-gh-pages@master
+        with:
+          token: "${{ secrets.GH_TOKEN }}"
+          charts_url: https://kubefirst.github.io
+          repository: charts
