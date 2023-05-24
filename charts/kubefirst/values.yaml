@@ -10,3 +10,6 @@ kubefirst-api:
   kubefirst-api:
     host: https://kubefirst-api.example.com/api
     console: https://kubefirst.example.com
+mongodb:
+  auth:
+    existingSecret: kubefirst-initial-secrets
