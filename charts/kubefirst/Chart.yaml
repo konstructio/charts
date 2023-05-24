@@ -1,10 +1,10 @@
 apiVersion: v2
 dependencies:
 - name: console
-  repository: https://chartmuseum.mgmt-20.kubefirst.com
+  repository: https://chartmuseum.kubefirst.com
   version: 2.9.0
 - name: kubefirst-api
-  repository: https://chartmuseum.mgmt-20.kubefirst.com
+  repository: https://chartmuseum.kubefirst.com
   version: 0.14.0
 - name: mongodb
   condition: mongodb.enabled
@@ -13,4 +13,4 @@ dependencies:
 description: kubefirst helm chart
 name: kubefirst
 type: application
-version: 0.0.2
+version: 0.0.3
