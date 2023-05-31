@@ -26,7 +26,14 @@ jobs:
         with:
           version: v3.10.0
 
-      - name: Run chart-releaser
-        uses: helm/chart-releaser-action@v1.4.1
-        env:
-          CR_TOKEN: "${{ secrets.GITHUB_TOKEN }}"
+      - name: Inject slug/short variables
+        uses: rlespinasse/github-slug-action@v4
+
+      - name: Push Helm Chart to ChartMuseum
+        uses: bsord/helm-push@v4.1.0
+        with:
+          username: '${{ secrets.CHARTMUSEUM_USER }}'
+          password: ${{ secrets.CHARTMUSEUM_PASSWORD }}
+          registry-url: 'https://charts.kubefirst.com'
+          chart-folder: charts/kubefirst
+          update-dependencies: true

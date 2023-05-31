@@ -10,5 +10,4 @@ You can see the new package version here [Kubefirst Chart Repository](https://ku
 
 ### Adding helm chart to you repo
 
-helm repo add api https://kubefirst.github.io/charts/
-helm repo add console https://kubefirst.github.io/charts/
+helm repo add kubefirst https://charts.kubefirst.com
