@@ -26,7 +26,7 @@ helm repo update
 
 ## Installing Kubefirst chart
 
-replace <version> with the desired version
+replace <version> with the desired version  
 ```bash
 helm install kubefirst --create-namespace --version <version> kubefirst/kubefirst
 ```
