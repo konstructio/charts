@@ -1,16 +1,16 @@
 apiVersion: v2
 dependencies:
-- name: console
-  repository: https://charts.kubefirst.com
-  version: 2.14.0
-- name: kubefirst-api
-  repository: https://charts.kubefirst.com
-  version: 0.19.0
-- name: mongodb
-  condition: mongodb.enabled
-  repository: https://charts.bitnami.com/bitnami
-  version: 13.10.3
+  - name: console
+    repository: https://charts.kubefirst.com
+    version: 2.15.0
+  - name: kubefirst-api
+    repository: https://charts.kubefirst.com
+    version: 0.19.0
+  - name: mongodb
+    condition: mongodb.enabled
+    repository: https://charts.bitnami.com/bitnami
+    version: 13.10.3
 description: kubefirst helm chart
 name: kubefirst
 type: application
-version: 0.0.13
+version: 0.0.14
