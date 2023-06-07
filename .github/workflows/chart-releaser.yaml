@@ -3,7 +3,7 @@ name: Release Charts
 on:
   push:
     branches:
-      - main
+      - feat_console_2_1_8
 
 jobs:
   release:
