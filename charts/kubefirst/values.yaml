@@ -1,3 +1,5 @@
 mongodb:
   auth:
     existingSecret: kubefirst-initial-secrets
+console:
+  chartVersion: V2.1.0
