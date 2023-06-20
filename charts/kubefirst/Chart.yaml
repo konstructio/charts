@@ -5,7 +5,7 @@ dependencies:
     version: 2.25.0
   - name: kubefirst-api
     repository: https://charts.kubefirst.com
-    version: 0.36.0
+    version: 0.37.0
   - name: mongodb
     condition: mongodb.enabled
     repository: https://charts.bitnami.com/bitnami
