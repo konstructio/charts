@@ -2,4 +2,4 @@ mongodb:
   auth:
     existingSecret: kubefirst-initial-secrets
 global:
-  kubefirstVersion: v2.2.3
+  kubefirstVersion: v2.2.4
