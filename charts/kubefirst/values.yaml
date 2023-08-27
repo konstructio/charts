@@ -3,3 +3,5 @@ mongodb:
     existingSecret: kubefirst-initial-secrets
 global:
   kubefirstVersion: v2.2.12
+kubefirst-api-ee:
+  existingSecret: kubefirst-initial-secrets
