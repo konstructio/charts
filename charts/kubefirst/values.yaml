@@ -4,3 +4,5 @@ mongodb:
 global:
 #  kubefirstVersion: v2.2.14
   kubefirstVersion: development
+kubefirst-api-ee:
+  existingSecret: kubefirst-initial-secrets
