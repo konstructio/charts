@@ -2,13 +2,13 @@ apiVersion: v2
 dependencies:
   - name: console
     repository: https://charts.kubefirst.com
-    version: 2.40.0-rc.5cc5761
+    version: 2.40.0-rc.ba06c7e
   - name: kubefirst-api
     repository: https://charts.kubefirst.com
-    version: 0.66.0-rc.1ffb7ae
+    version: 0.66.0-rc.3d0fa81
   - name: kubefirst-api-ee
     repository: https://charts.kubefirst.com
-    version: 0.3.0-rc.83e3940
+    version: 0.3.0-rc.11eb3ca
   - name: mongodb
     condition: mongodb.enabled
     repository: https://charts.bitnami.com/bitnami
