@@ -5,7 +5,7 @@ dependencies:
     version: 2.40.0-rc.d7cad5c
   - name: kubefirst-api
     repository: https://charts.kubefirst.com
-    version: 0.66.0-rc.b95b577
+    version: 0.66.0-rc.1b27ab8
   - name: kubefirst-api-ee
     repository: https://charts.kubefirst.com
     version: 0.3.0-rc.11eb3ca
