@@ -1,4 +1,12 @@
 mongodb:
+  extraEnvVars:
+    - name: MONGO_INITDB_ROOT_USERNAME
+      value: root
+    - name: MONGO_INITDB_ROOT_PASSWORD
+      valueFrom:
+        secretKeyRef:
+          key: mongodb-root-password
+          name: kubefirst-initial-secrets 
   auth:
     existingSecret: kubefirst-initial-secrets
 global:
