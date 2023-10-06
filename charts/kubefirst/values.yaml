@@ -6,3 +6,7 @@ global:
   kubefirstVersion: development
 kubefirst-api-ee:
   existingSecret: kubefirst-initial-secrets
+kubefirst-api:
+  env:
+  - name: "CLOUD_PROVIDER"
+    value: "<CLOUD_PROVIDER>"
