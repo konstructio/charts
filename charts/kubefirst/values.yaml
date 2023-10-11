@@ -14,6 +14,8 @@ global:
   kubefirstVersion: development
 kubefirst-api-ee:
   existingSecret: kubefirst-initial-secrets
+console:
+  domain: kubefirst.dev
 kubefirst-api:
   env:
   - name: "CLOUD_PROVIDER"
