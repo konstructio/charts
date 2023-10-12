@@ -5,10 +5,10 @@ dependencies:
     version: 2.40.0-rc.7049ab0
   - name: kubefirst-api
     repository: https://charts.kubefirst.com
-    version: 0.66.0-rc.e495f19
+    version: 0.66.0-rc.7c1a177
   - name: kubefirst-api-ee
     repository: https://charts.kubefirst.com
-    version: 0.3.0-rc.76b80d1
+    version: 0.3.0-rc.8c23667
   - name: mongodb
     condition: mongodb.enabled
     repository: https://charts.bitnami.com/bitnami
@@ -16,4 +16,4 @@ dependencies:
 description: kubefirst helm chart
 name: kubefirst
 type: application
-version: 2.3.0-rc38
+version: 2.3.0-rc39
