@@ -3,7 +3,7 @@ name: Release Charts
 on:
   push:
     branches:
-      - main
+      - feat-refactor_telemetry
 
 jobs:
   release:
