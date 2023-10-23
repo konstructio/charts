@@ -8,7 +8,7 @@ dependencies:
   version: 0.66.0-rc.10480a1
 - name: kubefirst-api-ee
   repository: https://charts.kubefirst.com
-  version: 0.4.0-rc.24785c1
+  version: 0.4.0-rc.41cd1f6
 - name: mongodb
   condition: mongodb.enabled
   repository: https://charts.bitnami.com/bitnami
