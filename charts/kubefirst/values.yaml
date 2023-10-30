@@ -10,13 +10,9 @@ mongodb:
   auth:
     existingSecret: kubefirst-initial-secrets
 global:
-  kubefirstVersion: v2.3.3
+  kubefirstVersion: v2.3.4
 #  kubefirstVersion: development
 kubefirst-api-ee:
   existingSecret: kubefirst-initial-secrets
 console:
   domain: kubefirst.dev
-kubefirst-api:
-  env:
-  - name: "CLOUD_PROVIDER"
-    value: "<CLOUD_PROVIDER>"
