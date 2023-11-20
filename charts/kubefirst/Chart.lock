@@ -4,12 +4,12 @@ dependencies:
   version: 2.42.0-rc.f44bd6d
 - name: kubefirst-api
   repository: https://charts.kubefirst.com
-  version: 0.73.0-rc.d94b974
+  version: 0.73.0-rc.078d0b7
 - name: kubefirst-api-ee
   repository: https://charts.kubefirst.com
   version: 0.5.0-rc.5b63ff3
 - name: mongodb
   repository: https://charts.bitnami.com/bitnami
   version: 13.10.3
-digest: sha256:9e4419e37c15dfda3d958c234ffd435fda80f5b838b858781a93090efe10ff56
-generated: "2023-11-20T22:34:50.800385062Z"
+digest: sha256:b031d495a5add04facd260b76abcf372c21c92e2779d17acb6309773243ab361
+generated: "2023-11-20T23:55:07.058157144Z"
