@@ -2,7 +2,6 @@
 
 ## Bump Macro Chart
 
-
 1. adjust [console version](https://github.com/kubefirst/charts/blob/main/charts/kubefirst/Chart.yaml#L5) (if needed)
 2. adjust [kubefirst-api version](https://github.com/kubefirst/charts/blob/main/charts/kubefirst/Chart.yaml#L8) (if needed)
 3. adjust [macro chart version](https://github.com/kubefirst/charts/blob/main/charts/kubefirst/Chart.yaml#L16)
