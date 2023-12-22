@@ -1,7 +1,7 @@
 dependencies:
 - name: console
   repository: https://charts.kubefirst.com
-  version: 2.43.0-rc.8edc4d9
+  version: 2.43.0-rc.9447f26
 - name: kubefirst-api
   repository: https://charts.kubefirst.com
   version: 0.75.1-rc.cd85771
@@ -11,5 +11,5 @@ dependencies:
 - name: mongodb
   repository: https://charts.bitnami.com/bitnami
   version: 13.10.3
-digest: sha256:843db8b937776a3ea0cf231b2f59e804f6dd3648a6aa6f8c961149c52b897999
-generated: "2023-12-20T23:26:00.286849708Z"
+digest: sha256:a8a52d0a73478bd599ed4e82a09b6f9bb092e8781937fe0055c60920b056bec6
+generated: "2023-12-22T16:14:17.09129924Z"
