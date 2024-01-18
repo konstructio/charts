@@ -5,7 +5,7 @@ dependencies:
   version: 2.43.0-rc.2300f03
 - name: kubefirst-api
   repository: https://charts.kubefirst.com
-  version: 0.75.1-rc.a9db653
+  version: 0.75.1-rc.b2f642f
 - name: kubefirst-api-ee
   repository: https://charts.kubefirst.com
   version: 0.6.0-rc.424f72c
@@ -16,4 +16,4 @@ dependencies:
 description: kubefirst helm chart
 name: kubefirst
 type: application
-version: 2.3.8-rc29
+version: 2.3.8-rc30
