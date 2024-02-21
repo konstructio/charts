@@ -30,4 +30,3 @@ replace <version> with the desired version
 ```bash
 helm install kubefirst --create-namespace --version <version> kubefirst/kubefirst
 ```
-
