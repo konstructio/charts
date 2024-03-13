@@ -8,8 +8,8 @@ dependencies:
   version: 0.77.0-rc.c8002ae
 - name: kubefirst-api-ee
   repository: https://charts.kubefirst.com
-  version: 0.7.0-rc.ed7b5cb
+  version: 0.7.0-rc.8cf097b
 description: kubefirst helm chart
 name: kubefirst
 type: application
-version: 2.3.9-rc23
+version: 2.3.9-rc24

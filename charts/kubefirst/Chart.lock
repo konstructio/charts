@@ -7,6 +7,6 @@ dependencies:
   version: 0.77.0-rc.c8002ae
 - name: kubefirst-api-ee
   repository: https://charts.kubefirst.com
-  version: 0.7.0-rc.ed7b5cb
-digest: sha256:28328e53526c46b1f05fe2e01fba219e657405dab4549910bbeffe792af94537
-generated: "2024-03-13T02:45:12.014139251Z"
+  version: 0.7.0-rc.8cf097b
+digest: sha256:65ee4067e096b9cca24450fe06bd975b8518cff7fa34b6f6c70ada3e41416321
+generated: "2024-03-13T03:20:08.355042206Z"
