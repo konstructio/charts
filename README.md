@@ -14,7 +14,6 @@ helm dependency update ./charts/kubefirst
 5. Open a PR against the `main` branch
 6. Once you merge the PR the GitHub action will update the chart in the Kubefirst Chart Museum
 
-
 ## Adding Kubefirst chart to the Helm repo
 
 Run the following commands
