@@ -4,9 +4,9 @@ dependencies:
   version: 2.44.0
 - name: kubefirst-api
   repository: https://charts.kubefirst.com
-  version: 0.80.0-rc.482f8f2
+  version: 0.80.0
 - name: kubefirst-api-ee
   repository: https://charts.kubefirst.com
-  version: 0.8.0-rc.6dd2cd2
-digest: sha256:973cc03042b3e21242061f3efbbdd530575ff88af3bc2f1ae2b68e45cffe913c
-generated: "2024-03-18T04:58:38.000070853Z"
+  version: 0.8.0
+digest: sha256:0902cc7077b37801bd113391ae1d514295104d90babc87b685977cd3f5e2505f
+generated: "2024-03-18T01:11:51.399077-04:00"
