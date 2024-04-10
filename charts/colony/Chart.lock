@@ -1,0 +1,6 @@
+dependencies:
+- name: colony-api
+  repository: https://charts.kubefirst.com
+  version: 0.1.0-rc.fa35f0f
+digest: sha256:4826bb0ca4574a3de561b9d92b532b35a730a5e2dc00b7724fbad19eef76dae0
+generated: "2024-04-09T17:41:45.289302-04:00"
