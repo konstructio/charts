@@ -2,8 +2,8 @@ apiVersion: v2
 dependencies:
 - name: colony-api
   repository: https://charts.kubefirst.com
-  version: 0.1.0-rc.b838658
+  version: 0.1.0-rc.9f41c77
 description: kubefirst helm chart
 name: colony
 type: application
-version: 0.1.0-rc2
+version: 0.1.0-rc3
