@@ -1,6 +1,9 @@
 dependencies:
-- name: colony-api
+- name: colony-push-agent
   repository: https://charts.kubefirst.com
-  version: 0.1.0-rc.fa35f0f
-digest: sha256:4826bb0ca4574a3de561b9d92b532b35a730a5e2dc00b7724fbad19eef76dae0
-generated: "2024-04-09T17:41:45.289302-04:00"
+  version: 0.1.0-rc.760d7a3
+- name: colony-pull-agent
+  repository: https://charts.kubefirst.com
+  version: 0.1.0-rc.e77dcb2
+digest: sha256:fd064220cc269229d9b4320e8d4c8620d38b41a080d80a453d5ff610adcc91d1
+generated: "2024-04-24T20:48:26.44437-05:00"
