@@ -1,12 +1,12 @@
 apiVersion: v2
 dependencies:
-- name: colony-push-agent 
+- name: colony-push-agent
   repository: https://charts.kubefirst.com
   version: 0.1.0-rc.760d7a3
-- name: colony-pull-agent 
+- name: colony-pull-agent
   repository: https://charts.kubefirst.com
-  version: 0.1.0-rc.e77dcb2
+  version: 0.1.0-rc.c4d8ff7
 description: kubefirst helm chart
 name: colony
 type: application
-version: 0.1.0-rc9
+version: 0.1.0-rc10
