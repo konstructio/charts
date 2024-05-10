@@ -9,4 +9,4 @@ dependencies:
 description: kubefirst helm chart
 name: colony
 type: application
-version: 0.1.0-rc46
+version: 0.1.0-rc47
