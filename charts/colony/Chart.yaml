@@ -5,8 +5,8 @@ dependencies:
   version: 0.1.0-rc.73c9cd1
 - name: colony-pull-agent
   repository: https://charts.kubefirst.com
-  version: 0.1.2-rc.3102c89
+  version: 0.1.2-rc.fc53788
 description: kubefirst helm chart
 name: colony
 type: application
-version: 0.1.0-rc63
+version: 0.1.0-rc64
