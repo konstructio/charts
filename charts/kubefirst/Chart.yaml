@@ -2,14 +2,14 @@ apiVersion: v2
 dependencies:
 - name: console
   repository: https://charts.kubefirst.com
-  version: 2.46.0-rc.ec7881d
+  version: 2.46.0
 - name: kubefirst-api
   repository: https://charts.kubefirst.com
-  version: 0.88.0-rc.338920b
+  version: 0.88.0
 - name: kubefirst-api-ee
   repository: https://charts.kubefirst.com
   version: 0.8.0
 description: kubefirst helm chart
 name: kubefirst
 type: application
-version: 2.4.9-rc4
+version: 2.4.9
