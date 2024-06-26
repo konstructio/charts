@@ -1,7 +1,4 @@
 dependencies:
-- name: colony-push-agent
-  repository: https://charts.kubefirst.com
-  version: 0.1.0-rc.760d7a3
 - name: colony-pull-agent
   repository: https://charts.kubefirst.com
   version: 0.1.0-rc.e77dcb2
