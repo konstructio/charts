@@ -2,8 +2,8 @@ apiVersion: v2
 dependencies:
 - name: colony-agent
   repository: https://charts.kubefirst.com
-  version: 0.1.4-rc.3ae8a73
+  version: 0.1.4-rc.14ea030
 description: kubefirst helm chart
 name: colony
 type: application
-version: 0.1.0-rc116
+version: 0.1.0-rc117
