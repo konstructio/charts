@@ -72,3 +72,22 @@ spec:
                   value: '{{steps.get-version.outputs.result}}'
                 - name: environment
                   value: "development"
+
+        - - name: pull-sign-commit-push-kubefirst
+            templateRef:
+              name: cwft-git
+              template: pull-sign-commit-push-kubefirst
+              clusterScope: true
+            arguments:
+              artifacts:
+                - name: repo-source
+                  from: '{{steps.checkout.outputs.artifacts.repo-source}}'
+              parameters:
+                - name: appName
+                  value: 'kubefirst'
+                - name: commitMessage
+                  value: 'set next macro chart for kubefirst - {{steps.get-version.outputs.result}}'
+                - name: chartVersion
+                  value: '{{steps.get-version.outputs.result}}'
+                - name: environment
+                  value: "development"
