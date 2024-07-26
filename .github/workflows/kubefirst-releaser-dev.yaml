@@ -10,7 +10,7 @@ env:
   ARGO_VERSION: v3.4.1
 
 jobs:
-  publish:
+  deliver_rc_chart:
     runs-on: self-hosted
     steps:
       - name: Setup Runner for Argo
@@ -33,11 +33,18 @@ jobs:
       - run: echo ${GITHUB_REPOSITORY}
       - run: echo ${GITHUB_REPOSITORY_NAME_PART}
       - run: echo ${GITHUB_SERVER_URL}
-      - name: publish
+      - name: deliver-rc-chart
         run: |
           echo "tag version: ${GITHUB_REF_NAME}"
           argo version --short
-
+          argo submit .argo/deliver-rc-chart.yaml \
+            --generate-name="${GITHUB_REPOSITORY_NAME_PART}-set-rc-versions-${GITHUB_REF_NAME}-" \
+            -p appName="${GITHUB_REPOSITORY_NAME_PART}" \
+            -p branch="main" \
+            -p gitUrlNoProtocol="git@github.com:${GITHUB_REPOSITORY_OWNER_PART_SLUG}" \
+            -p prefix="kubefirst-v" \
+            -p tag="${GITHUB_REF_NAME}" \
+            --wait --log
 #! repsonsibility is to get the tag, 
 #! parse the chart portion
 #! set the chart verison in the kubefirst repo, gitops-template repo, and development in gitops repo 
