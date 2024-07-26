@@ -45,7 +45,7 @@ spec:
             arguments:
               artifacts:
                 - name: repo-source
-                  from: '{{steps.set-app-version-and-bump-macro-chartz.outputs.artifacts.repo-source}}'
+                  from: '{{steps.checkout.outputs.artifacts.repo-source}}'
               parameters:
                 - name: appName
                   value: 'gitops-template'
@@ -62,7 +62,7 @@ spec:
             arguments:
               artifacts:
                 - name: repo-source
-                  from: '{{steps.set-app-version-and-bump-macro-chartz.outputs.artifacts.repo-source}}'
+                  from: '{{steps.checkout.outputs.artifacts.repo-source}}'
               parameters:
                 - name: appName
                   value: 'gitops'
