@@ -35,7 +35,7 @@ jobs:
       - run: echo ${GITHUB_SERVER_URL}
       - name: publish
         run: |
-          echo "commit sha ${GITHUB_SHA}"
+          echo "tag version: ${GITHUB_REF_NAME}"
           argo version --short
 
 #! repsonsibility is to get the tag, 
