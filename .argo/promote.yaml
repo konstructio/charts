@@ -32,7 +32,7 @@ spec:
                   from: '{{steps.checkout.outputs.artifacts.repo-source}}'
               parameters:
                 - name: gitopsSourceFile
-                  value: '{{workflow.parameters.prefix}}'
+                  value: 'registry/{{workflow.parameters.clusterName}}/components/development/kubefirst.yaml' #hardcoded env
         - - name: set-environment-version-for-macro-chart
             templateRef:
               name: cwft-helm
