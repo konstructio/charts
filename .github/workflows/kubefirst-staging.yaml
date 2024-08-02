@@ -3,10 +3,7 @@ env:
   ARGO_NAMESPACE: argo
   ARGO_VERSION: v3.4.1
   CONTAINER_REGISTRY_URL: '555935582951.dkr.ecr.us-east-2.amazonaws.com'
-on:
-  push:
-    branches:
-      - main
+on: workflow_dispatch
 jobs:
   staging:
     runs-on: self-hosted
