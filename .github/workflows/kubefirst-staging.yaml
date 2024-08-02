@@ -1,4 +1,4 @@
-name: release
+name: kubefirst-staging
 env:
   ARGO_NAMESPACE: argo
   ARGO_VERSION: v3.4.1
@@ -30,7 +30,7 @@ jobs:
         run: |
           echo "commit sha $GITHUB_SHA"
           argo version --short
-          argo submit .argo/promote.yaml \
+          argo submit .argo/kubefirst-staging.yaml \
             --generate-name="${GITHUB_REPOSITORY_NAME_PART}-staging-${GITHUB_SHA_SHORT}-" \
             -p appName="${GITHUB_REPOSITORY_NAME_PART}" \
             -p branch="${GITHUB_REF_NAME}" \
