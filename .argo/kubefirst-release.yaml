@@ -95,7 +95,7 @@ spec:
                 - name: appName
                   value: '{{workflow.parameters.appName}}'
                 - name: chartDir
-                  value: 'charts/{{workflow.parameters.appName}}'
+                  value: 'charts/kubefirst'
         - - name: release-and-tag-main-with-notes
             templateRef:
               name: cwft-git
@@ -125,7 +125,7 @@ spec:
                 - name: appName
                   value: '{{workflow.parameters.appName}}'
                 - name: chartDir
-                  value: 'charts/{{workflow.parameters.appName}}'
+                  value: 'charts/kubefirst'
                 - name: chartVersion
                   value: '{{steps.get-release-version-from-rc.outputs.result}}'
 
