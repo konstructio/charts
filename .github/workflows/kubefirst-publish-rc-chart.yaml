@@ -1,4 +1,4 @@
-name: Release Charts
+name: kubefirst-rc-publish
 
 on:
   push:
@@ -33,11 +33,11 @@ jobs:
       - run: echo ${GITHUB_REPOSITORY}
       - run: echo ${GITHUB_REPOSITORY_NAME_PART}
       - run: echo ${GITHUB_SERVER_URL}
-      - name: deliver-rc-chart
+      - name: kubefirst-publish-rc-chart
         run: |
           echo "tag version: ${GITHUB_REF_NAME}"
           argo version --short
-          argo submit .argo/deliver-rc-chart.yaml \
+          argo submit .argo/kubefirst-publish-rc-chart.yaml \
             --generate-name="${GITHUB_REPOSITORY_NAME_PART}-set-rc-versions-${GITHUB_REF_NAME}-" \
             -p appName="${GITHUB_REPOSITORY_NAME_PART}" \
             -p branch="main" \
