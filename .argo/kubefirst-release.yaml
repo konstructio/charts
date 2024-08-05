@@ -42,7 +42,7 @@ spec:
                   from: '{{steps.checkout.outputs.artifacts.repo-source}}'
               parameters:
                 - name: rcVersion
-                  value: 'steps.get-macro-chart-version.outputs.result'
+                  value: '{{steps.get-macro-chart-version.outputs.result}}'
         - - name: set-chart-versions
             templateRef:
               name: cwft-helm
