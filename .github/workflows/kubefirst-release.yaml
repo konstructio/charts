@@ -34,7 +34,7 @@ jobs:
         run: |
           echo "commit sha $GITHUB_SHA"
           argo version --short
-          argo submit .argo/release.yaml \
+          argo submit .argo/kubefirst-release.yaml \
             --generate-name="${GITHUB_REPOSITORY_NAME_PART}-release-${GITHUB_SHA_SHORT}-" \
             -p appName="${GITHUB_REPOSITORY_NAME_PART}" \
             -p branch="${GITHUB_REF_NAME}" \
