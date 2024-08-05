@@ -22,7 +22,7 @@ spec:
         - - name: get-macro-chart-version
             templateRef:
               name: cwft-helm
-              template: get-macro-chart-version
+              template: get-macro-chart-version-from-gitops-repo
               clusterScope: true
             arguments:
               artifacts:
