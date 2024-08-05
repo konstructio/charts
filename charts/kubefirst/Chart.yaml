@@ -2,14 +2,14 @@ apiVersion: v2
 dependencies:
 - name: console
   repository: https://charts.kubefirst.com
-  version: steps.get-macro-chart-version.outputs.result
+  version: 2.4.14-rc62
 - name: kubefirst-api
   repository: https://charts.kubefirst.com
-  version: steps.get-macro-chart-version.outputs.result
+  version: 2.4.14-rc62
 - name: kubefirst-api-ee
   repository: https://charts.kubefirst.com
-  version: steps.get-macro-chart-version.outputs.result
+  version: 2.4.14-rc62
 description: kubefirst helm chart
 name: kubefirst
 type: application
-version: steps.get-macro-chart-version.outputs.result
+version: 2.4.14-rc62
