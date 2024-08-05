@@ -9,7 +9,7 @@ spec:
         - - name: checkout
             templateRef:
               name: cwft-git
-              template: checkout-with-gitops
+              template: checkout-with-gitops-for-charts
               clusterScope: true
             arguments:
               parameters:
