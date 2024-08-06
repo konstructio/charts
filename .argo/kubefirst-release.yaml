@@ -43,10 +43,10 @@ spec:
               parameters:
                 - name: rcVersion
                   value: '{{steps.get-macro-chart-version.outputs.result}}'
-        - - name: set-chart-versions
+        - - name: set-macro-chart-version
             templateRef:
               name: cwft-helm
-              template: set-chart-versions
+              template: set-macro-chart-version
               clusterScope: true
             arguments:
               artifacts:
@@ -59,8 +59,6 @@ spec:
                   value: 'charts/kubefirst'
                 - name: chartVersion
                   value: '{{steps.get-release-version-from-rc.outputs.result}}'
-                - name: shortSha
-                  value: '{{workflow.parameters.shortSha}}'
         - - name: commit-release-chart-increment
             templateRef:
               name: cwft-git
@@ -90,7 +88,7 @@ spec:
             arguments:
               artifacts:
                 - name: repo-source
-                  from: '{{steps.set-chart-versions.outputs.artifacts.repo-source}}'
+                  from: '{{steps.set-macro-chart-version.outputs.artifacts.repo-source}}'
               parameters:
                 - name: appName
                   value: '{{workflow.parameters.appName}}'
@@ -104,7 +102,7 @@ spec:
             arguments:
               artifacts:
                 - name: repo-source
-                  from: '{{steps.set-chart-versions.outputs.artifacts.repo-source}}'
+                  from: '{{steps.set-macro-chart-version.outputs.artifacts.repo-source}}'
               parameters:
                 - name: orgName
                   value: 'kubefirst'
@@ -120,7 +118,7 @@ spec:
             arguments:
               artifacts:
                 - name: repo-source
-                  from: '{{steps.set-chart-versions.outputs.artifacts.repo-source}}'
+                  from: '{{steps.set-macro-chart-version.outputs.artifacts.repo-source}}'
               parameters:
                 - name: appName
                   value: '{{workflow.parameters.appName}}'
