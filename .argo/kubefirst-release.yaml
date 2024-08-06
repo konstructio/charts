@@ -67,7 +67,7 @@ spec:
             arguments:
               artifacts:
                 - name: repo-source
-                  from: '{{steps.set-chart-versions.outputs.artifacts.repo-source}}'
+                  from: '{{steps.set-macro-chart-version.outputs.artifacts.repo-source}}'
               parameters:
                 - name: repoName
                   value: '{{workflow.parameters.appName}}'
