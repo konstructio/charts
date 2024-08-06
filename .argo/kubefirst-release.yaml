@@ -88,7 +88,7 @@ spec:
             arguments:
               artifacts:
                 - name: repo-source
-                  from: '{{steps.set-macro-chart-version.outputs.artifacts.repo-source}}'
+                  from: '{{steps.commit-release-chart-increment.outputs.artifacts.repo-source}}'
               parameters:
                 - name: appName
                   value: '{{workflow.parameters.appName}}'
@@ -102,7 +102,7 @@ spec:
             arguments:
               artifacts:
                 - name: repo-source
-                  from: '{{steps.set-macro-chart-version.outputs.artifacts.repo-source}}'
+                  from: '{{steps.commit-release-chart-increment.outputs.artifacts.repo-source}}'
               parameters:
                 - name: orgName
                   value: 'kubefirst'
@@ -110,6 +110,43 @@ spec:
                   value: '{{workflow.parameters.appName}}'
                 - name: tagName
                   value: 'v{{steps.get-release-version-from-rc.outputs.result}}'
+
+        - - name: pull-sign-commit-push-gitops-template
+            templateRef:
+              name: cwft-git
+              template: pull-sign-commit-push-gitops-template
+              clusterScope: true
+            arguments:
+              artifacts:
+                - name: repo-source
+                  from: '{{steps.checkout.outputs.artifacts.repo-source}}'
+              parameters:
+                - name: appName
+                  value: 'gitops-template'
+                - name: commitMessage
+                  value: 'set released macro chart for kubefirst - {{steps.get-release-version-from-rc.outputs.result}}'
+                - name: nextChartVersion
+                  value: '{{steps.get-release-version-from-rc.outputs.result}}'
+
+        - - name: pull-sign-commit-push-kubefirst
+            templateRef:
+              name: cwft-git
+              template: pull-sign-commit-push-kubefirst
+              clusterScope: true
+            arguments:
+              artifacts:
+                - name: repo-source
+                  from: '{{steps.checkout.outputs.artifacts.repo-source}}'
+              parameters:
+                - name: appName
+                  value: 'kubefirst'
+                - name: commitMessage
+                  value: 'set next macro chart for kubefirst - {{steps.get-release-version-from-rc.outputs.result}}'
+                - name: chartVersion
+                  value: '{{steps.get-release-version-from-rc.outputs.result}}'
+                - name: environment
+                  value: "development"
+
         - - name: increment-chart-minor
             templateRef:
               name: cwft-helm
@@ -118,7 +155,7 @@ spec:
             arguments:
               artifacts:
                 - name: repo-source
-                  from: '{{steps.set-macro-chart-version.outputs.artifacts.repo-source}}'
+                  from: '{{steps.commit-release-chart-increment.outputs.artifacts.repo-source}}'
               parameters:
                 - name: appName
                   value: '{{workflow.parameters.appName}}'
