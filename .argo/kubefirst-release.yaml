@@ -59,6 +59,22 @@ spec:
                   value: 'charts/kubefirst'
                 - name: chartVersion
                   value: '{{steps.get-release-version-from-rc.outputs.result}}'
+        - - name: set-kubefirst-version-in-values-yaml
+            templateRef:
+              name: cwft-helm
+              template: set-kubefirst-version-in-values-yaml
+              clusterScope: true
+            arguments:
+              artifacts:
+                - name: repo-source
+                  from: '{{steps.set-macro-chart-version.outputs.artifacts.repo-source}}'
+              parameters:
+                - name: appName
+                  value: '{{workflow.parameters.appName}}'
+                - name: chartDir
+                  value: 'charts/kubefirst'
+                - name: chartVersion
+                  value: '{{steps.get-release-version-from-rc.outputs.result}}'
         - - name: commit-release-chart-increment
             templateRef:
               name: cwft-git
@@ -67,7 +83,7 @@ spec:
             arguments:
               artifacts:
                 - name: repo-source
-                  from: '{{steps.set-macro-chart-version.outputs.artifacts.repo-source}}'
+                  from: '{{steps.set-kubefirst-version-in-values-yaml.outputs.artifacts.repo-source}}'
               parameters:
                 - name: repoName
                   value: '{{workflow.parameters.appName}}'

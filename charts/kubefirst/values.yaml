@@ -1,5 +1,5 @@
 global:
-  kubefirstVersion: 2.4.14-rc47
+  kubefirstVersion: 2.4.14
 #  kubefirstVersion: development
 kubefirst-api-ee:
   existingSecret: kubefirst-initial-secrets
