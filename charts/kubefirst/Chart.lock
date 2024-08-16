@@ -1,12 +1,12 @@
 dependencies:
 - name: console
   repository: https://charts.kubefirst.com
-  version: 2.54.0
+  version: 2.55.0-rc.5626116
 - name: kubefirst-api
   repository: https://charts.kubefirst.com
   version: 0.98.0
 - name: kubefirst-api-ee
   repository: https://charts.kubefirst.com
   version: 0.12.0
-digest: sha256:1eb20749a5820bcce85f9e583a3f938d09c002ec91986b01bf255453960942bc
-generated: "2024-08-16T04:25:06.144044281Z"
+digest: sha256:8774dd893d022dbf643c0024ab3f2ffeee382a4003468f7850f27faf4bf607ec
+generated: "2024-08-16T05:07:23.115100118Z"
