@@ -1,0 +1,95 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Workflow
+metadata:
+  namespace: argo
+spec:
+  entrypoint: main
+  serviceAccountName: argo-server
+  templates:
+    - name: main
+      steps:
+        - - name: checkout
+            templateRef:
+              name: cwft-git-v2
+              template: checkout-with-gitops-for-charts
+              clusterScope: true
+            arguments:
+              parameters:
+                - name: appName
+                  value: '{{workflow.parameters.appName}}'
+                - name: branch
+                  value: '{{workflow.parameters.branch}}'
+                - name: gitUrlNoProtocol
+                  value: '{{workflow.parameters.gitUrlNoProtocol}}'
+
+        - - name: get-version
+            templateRef:
+              name: cwft-ci-v2
+              template: strip-tag-prefix
+              clusterScope: true
+            arguments:
+              artifacts:
+                - name: repo-source
+                  from: '{{steps.checkout.outputs.artifacts.repo-source}}'
+              parameters:
+                - name: prefix
+                  value: '{{workflow.parameters.prefix}}'
+                - name: tag
+                  value: '{{workflow.parameters.tag}}'
+
+        #! needed to update the macro chart version for mgmt clusters
+        # - - name: pull-sign-commit-push-gitops-template
+        #     templateRef:
+        #       name: cwft-git-v2
+        #       template: pull-sign-commit-push-gitops-template
+        #       clusterScope: true
+        #     arguments:
+        #       artifacts:
+        #         - name: repo-source
+        #           from: '{{steps.checkout.outputs.artifacts.repo-source}}'
+        #       parameters:
+        #         - name: appName
+        #           value: 'gitops-template'
+        #         - name: commitMessage
+        #           value: 'set next macro chart for kubefirst - {{steps.get-version.outputs.result}}'
+        #         - name: nextChartVersion
+        #           value: '{{steps.get-version.outputs.result}}'
+
+        - - name: pull-sign-commit-push-gitops
+            templateRef:
+              name: cwft-git-v2
+              template: pull-sign-commit-push-gitops
+              clusterScope: true
+            arguments:
+              artifacts:
+                - name: repo-source
+                  from: '{{steps.checkout.outputs.artifacts.repo-source}}'
+              parameters:
+                - name: appName
+                  value: 'metaphor'
+                - name: chartVersion
+                  value: '{{steps.get-version.outputs.result}}'
+                - name: commitMessage
+                  value: 'set next macro chart for metaphor-macro - {{steps.get-version.outputs.result}}'
+                - name: environment
+                  value: 'development'
+
+        #! needed to set the macro chart version in the kubefirst cli
+        # - - name: pull-sign-commit-push-kubefirst
+        #     templateRef:
+        #       name: cwft-git-v2
+        #       template: pull-sign-commit-push-kubefirst
+        #       clusterScope: true
+        #     arguments:
+        #       artifacts:
+        #         - name: repo-source
+        #           from: '{{steps.checkout.outputs.artifacts.repo-source}}'
+        #       parameters:
+        #         - name: appName
+        #           value: 'kubefirst'
+        #         - name: commitMessage
+        #           value: 'set next macro chart for kubefirst - {{steps.get-version.outputs.result}}'
+        #         - name: chartVersion
+        #           value: '{{steps.get-version.outputs.result}}'
+        #         - name: environment
+        #           value: "development"

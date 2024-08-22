@@ -1,0 +1,42 @@
+name: metaphor-rc-publish
+
+on:
+  push:
+    tags:
+      - 'metaphor-v*-rc*'
+
+env:
+  ARGO_NAMESPACE: argo
+  ARGO_VERSION: v3.4.1
+
+jobs:
+  deliver_rc_chart:
+    runs-on: self-hosted
+    steps:
+      - name: Check out repository code
+        uses: actions/checkout@v4
+      - name: Inject slug/short variables
+        uses: rlespinasse/github-slug-action@v4
+      - name: metaphor-publish-rc-chart
+        run: |
+          echo "tag version: ${GITHUB_REF_NAME}"
+          echo "Install argo"
+          # Download the binary
+          curl -sLO https://github.com/argoproj/argo-workflows/releases/download/${ARGO_VERSION}/argo-linux-amd64.gz
+          # Unzip
+          gunzip argo-linux-amd64.gz
+          # Make binary executable
+          chmod +x argo-linux-amd64
+          echo "commit sha ${GITHUB_SHA}"
+          ./argo-linux-amd64 version --short
+          ./argo-linux-amd64 submit .argo/metaphor-publish-rc-chart.yaml \
+            --generate-name="${GITHUB_REPOSITORY_NAME_PART}-set-rc-versions-${GITHUB_REF_NAME}-" \
+            -p appName="${GITHUB_REPOSITORY_NAME_PART}" \
+            -p branch="main" \
+            -p gitUrlNoProtocol="git@github.com:${GITHUB_REPOSITORY_OWNER_PART_SLUG}" \
+            -p prefix="metaphor-v" \
+            -p tag="${GITHUB_REF_NAME}" \
+            --wait --log
+#! repsonsibility is to get the tag, 
+#! parse the chart portion
+#! set the chart verison in the metaphor repo, gitops-template repo, and development in gitops repo 

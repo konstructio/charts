@@ -1,0 +1,70 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Workflow
+metadata:
+  namespace: argo
+spec:
+  entrypoint: main
+  serviceAccountName: argo-server
+  templates:
+    - name: main
+      steps:
+        - - name: checkout
+            templateRef:
+              name: cwft-git-v2
+              template: checkout-with-gitops-for-charts
+              clusterScope: true
+            arguments:
+              parameters:
+                - name: appName
+                  value: '{{workflow.parameters.appName}}'
+                - name: branch
+                  value: '{{workflow.parameters.branch}}'
+                - name: gitUrlNoProtocol
+                  value: '{{workflow.parameters.gitUrlNoProtocol}}'
+
+        - - name: get-macro-chart-version
+            templateRef:
+              name: cwft-helm-v2
+              template: get-macro-chart-version-from-gitops-repo
+              clusterScope: true
+            arguments:
+              artifacts:
+                - name: repo-source
+                  from: '{{steps.checkout.outputs.artifacts.repo-source}}'
+              parameters:
+                - name: gitopsSourceFile
+                  value: '{{workflow.parameters.gitopsSourceFile}}'
+
+        - - name: set-environment-version-for-macro-chart
+            templateRef:
+              name: cwft-helm-v2
+              template: set-environment-version-for-macro-chart
+              clusterScope: true
+            arguments:
+              artifacts:
+                - name: repo-source
+                  from: '{{steps.checkout.outputs.artifacts.repo-source}}'
+              parameters:
+                - name: fullChartPath
+                  value: '{{workflow.parameters.gitopsDestinationFile}}'
+                - name: chartVersion
+                  value: '{{steps.get-macro-chart-version.outputs.result}}'
+                - name: environment
+                  value: '{{workflow.parameters.environment}}'
+
+        - - name: commit
+            templateRef:
+              name: cwft-git-v2
+              template: pull-commit-sign-push
+              clusterScope: true
+            arguments:
+              artifacts:
+                - name: repo-source
+                  from: '{{steps.set-environment-version-for-macro-chart.outputs.artifacts.repo-source}}'
+              parameters:
+                - name: repoName
+                  value: 'gitops'
+                - name: gitUrlNoProtocol
+                  value: '{{workflow.parameters.gitUrlNoProtocol}}'
+                - name: commitMessage
+                  value: 'setting {{workflow.parameters.appName}} {{workflow.parameters.environment}} to chart version {{steps.get-macro-chart-version.outputs.result}}-rc.{{workflow.parameters.shortSha}}'
