@@ -1,0 +1,36 @@
+name: metaphor-release
+env:
+  ARGO_NAMESPACE: argo
+  ARGO_VERSION: v3.4.1
+on: workflow_dispatch
+jobs:
+  release:
+    runs-on: self-hosted
+    steps:
+      - name: Check out repository code
+        uses: actions/checkout@v4
+      - name: Inject slug/short variables
+        uses: rlespinasse/github-slug-action@v4
+      # todo need to look repositoryGitURL, this needs to be overrideable from here and respected on the template side for both repositories
+      - name: release
+        run: |
+          echo "tag version: ${GITHUB_REF_NAME}"
+          echo "Install argo"
+          # Download the binary
+          curl -sLO https://github.com/argoproj/argo-workflows/releases/download/${ARGO_VERSION}/argo-linux-amd64.gz
+          # Unzip
+          gunzip argo-linux-amd64.gz
+          # Make binary executable
+          chmod +x argo-linux-amd64
+          echo "commit sha ${GITHUB_SHA}"
+          ./argo-linux-amd64 version --short
+          ./argo-linux-amd64 submit .argo/metaphor-release.yaml \
+            --generate-name="${GITHUB_REPOSITORY_NAME_PART}-release-${GITHUB_SHA_SHORT}-" \
+            -p appName="${GITHUB_REPOSITORY_NAME_PART}" \
+            -p branch="${GITHUB_REF_NAME}" \
+            -p environment="production" \
+            -p gitUrlNoProtocol="git@github.com:${GITHUB_REPOSITORY_OWNER_PART_SLUG}" \
+            -p shortSha="${GITHUB_SHA_SHORT}" \
+            -p gitopsSourceFile="registry/environments/staging/metaphor.yaml" \
+            -p gitopsDestinationFile="registry/environments/production/metaphor.yaml" \
+            --wait --log

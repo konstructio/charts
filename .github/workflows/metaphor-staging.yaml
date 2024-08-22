@@ -1,0 +1,35 @@
+name: metaphor-staging
+env:
+  ARGO_NAMESPACE: argo
+  ARGO_VERSION: v3.4.1
+on: workflow_dispatch
+jobs:
+  staging:
+    runs-on: self-hosted
+    steps:
+      - name: Check out repository code
+        uses: actions/checkout@v4
+      - name: Inject slug/short variables
+        uses: rlespinasse/github-slug-action@v4
+      - name: staging
+        run: |
+          echo "tag version: ${GITHUB_REF_NAME}"
+          echo "Install argo"
+          # Download the binary
+          curl -sLO https://github.com/argoproj/argo-workflows/releases/download/${ARGO_VERSION}/argo-linux-amd64.gz
+          # Unzip
+          gunzip argo-linux-amd64.gz
+          # Make binary executable
+          chmod +x argo-linux-amd64
+          echo "commit sha ${GITHUB_SHA}"
+          ./argo-linux-amd64 version --short
+          ./argo-linux-amd64 submit .argo/metaphor-staging.yaml \
+            --generate-name="${GITHUB_REPOSITORY_NAME_PART}-staging-${GITHUB_SHA_SHORT}-" \
+            -p appName="${GITHUB_REPOSITORY_NAME_PART}" \
+            -p branch="${GITHUB_REF_NAME}" \
+            -p environment="staging" \
+            -p gitUrlNoProtocol="git@github.com:${GITHUB_REPOSITORY_OWNER_PART_SLUG}" \
+            -p shortSha="${GITHUB_SHA_SHORT}" \
+            -p gitopsSourceFile="registry/environments/development/metaphor.yaml" \
+            -p gitopsDestinationFile="registry/environments/staging/metaphor.yaml" \
+            --wait --log
