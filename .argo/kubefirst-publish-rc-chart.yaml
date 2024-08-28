@@ -10,7 +10,7 @@ spec:
       steps:
         - - name: checkout
             templateRef:
-              name: cwft-git
+              name: cwft-git-v2
               template: checkout-with-gitops-for-charts
               clusterScope: true
             arguments:
@@ -24,7 +24,7 @@ spec:
 
         - - name: get-version
             templateRef:
-              name: cwft-ci
+              name: cwft-ci-v2
               template: strip-tag-prefix
               clusterScope: true
             arguments:
@@ -39,7 +39,7 @@ spec:
 
         - - name: pull-sign-commit-push-gitops-template
             templateRef:
-              name: cwft-git
+              name: cwft-git-v2
               template: pull-sign-commit-push-gitops-template
               clusterScope: true
             arguments:
@@ -56,7 +56,7 @@ spec:
 
         - - name: pull-sign-commit-push-gitops
             templateRef:
-              name: cwft-git
+              name: cwft-git-v2
               template: pull-sign-commit-push-gitops
               clusterScope: true
             arguments:
@@ -66,16 +66,16 @@ spec:
               parameters:
                 - name: appName
                   value: 'gitops'
-                - name: commitMessage
-                  value: 'set next macro chart for kubefirst - {{steps.get-version.outputs.result}}'
                 - name: chartVersion
                   value: '{{steps.get-version.outputs.result}}'
+                - name: commitMessage
+                  value: 'set next macro chart for kubefirst - {{steps.get-version.outputs.result}}'
                 - name: environment
-                  value: "development"
+                  value: 'development'
 
         - - name: pull-sign-commit-push-kubefirst
             templateRef:
-              name: cwft-git
+              name: cwft-git-v2
               template: pull-sign-commit-push-kubefirst
               clusterScope: true
             arguments:

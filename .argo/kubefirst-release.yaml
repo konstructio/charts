@@ -8,7 +8,7 @@ spec:
       steps:
         - - name: checkout
             templateRef:
-              name: cwft-git
+              name: cwft-git-v2
               template: checkout-with-gitops-for-charts
               clusterScope: true
             arguments:
@@ -19,9 +19,10 @@ spec:
                   value: '{{workflow.parameters.branch}}'
                 - name: gitUrlNoProtocol
                   value: '{{workflow.parameters.gitUrlNoProtocol}}'
+
         - - name: get-macro-chart-version
             templateRef:
-              name: cwft-helm
+              name: cwft-helm-v2
               template: get-macro-chart-version-from-gitops-repo
               clusterScope: true
             arguments:
@@ -30,10 +31,11 @@ spec:
                   from: '{{steps.checkout.outputs.artifacts.repo-source}}'
               parameters:
                 - name: gitopsSourceFile
-                  value: 'registry/{{workflow.parameters.clusterName}}/components/staging/kubefirst.yaml' #hardcoded env
+                  value: '{{workflow.parameters.gitopsSourceFile}}'
+
         - - name: get-release-version-from-rc
             templateRef:
-              name: cwft-helm
+              name: cwft-helm-v2
               template: get-release-version-from-rc
               clusterScope: true
             arguments:
@@ -43,9 +45,10 @@ spec:
               parameters:
                 - name: rcVersion
                   value: '{{steps.get-macro-chart-version.outputs.result}}'
+
         - - name: set-macro-chart-version
             templateRef:
-              name: cwft-helm
+              name: cwft-helm-v2
               template: set-macro-chart-version
               clusterScope: true
             arguments:
@@ -53,15 +56,14 @@ spec:
                 - name: repo-source
                   from: '{{steps.checkout.outputs.artifacts.repo-source}}'
               parameters:
-                - name: appName
-                  value: '{{workflow.parameters.appName}}'
                 - name: chartDir
                   value: 'charts/kubefirst'
                 - name: chartVersion
                   value: '{{steps.get-release-version-from-rc.outputs.result}}'
+
         - - name: set-kubefirst-version-in-values-yaml
             templateRef:
-              name: cwft-helm
+              name: cwft-helm-v2
               template: set-kubefirst-version-in-values-yaml
               clusterScope: true
             arguments:
@@ -72,21 +74,23 @@ spec:
                 - name: appName
                   value: '{{workflow.parameters.appName}}'
                 - name: chartDir
-                  value: 'charts/kubefirst'
+                  value: 'charts/{{workflow.parameters.appName}}'
                 - name: chartVersion
                   value: '{{steps.get-release-version-from-rc.outputs.result}}'
+
         - - name: commit-release-chart-increment
             templateRef:
-              name: cwft-git
-              template: pull-commit-push
+              name: cwft-git-v2
+              template: pull-commit-sign-push
               clusterScope: true
             arguments:
               artifacts:
                 - name: repo-source
                   from: '{{steps.set-kubefirst-version-in-values-yaml.outputs.artifacts.repo-source}}'
+                  # from: '{{steps.set-macro-chart-version.outputs.artifacts.repo-source}}'
               parameters:
                 - name: repoName
-                  value: '{{workflow.parameters.appName}}'
+                  value: 'charts'
                 - name: gitUrlNoProtocol
                   value: '{{workflow.parameters.gitUrlNoProtocol}}'
                 - name: commitMessage
@@ -96,9 +100,10 @@ spec:
                   # gitlab skip ci rule: https://devops.stackexchange.com/questions/6809/is-there-a-ci-skip-option-in-gitlab-ci
                   # in case, the rule is disbaled or don't work this step will create a circular trigger of builds and bumps of version.
                   value: "[skip ci] [CI SKIP] setting kubefirst chart to release version {{steps.get-release-version-from-rc.outputs.result}}\n\nskip-checks:true"
+
         - - name: publish-helm-chart
             templateRef:
-              name: cwft-helm
+              name: cwft-helm-v2
               template: publish-chart
               clusterScope: true
             arguments:
@@ -107,12 +112,13 @@ spec:
                   from: '{{steps.commit-release-chart-increment.outputs.artifacts.repo-source}}'
               parameters:
                 - name: appName
-                  value: '{{workflow.parameters.appName}}'
+                  value: 'charts'
                 - name: chartDir
                   value: 'charts/kubefirst'
+
         - - name: release-and-tag-main-with-notes
             templateRef:
-              name: cwft-git
+              name: cwft-git-v2
               template: release-and-tag-main-with-notes
               clusterScope: true
             arguments:
@@ -121,15 +127,15 @@ spec:
                   from: '{{steps.commit-release-chart-increment.outputs.artifacts.repo-source}}'
               parameters:
                 - name: orgName
-                  value: 'kubefirst'
+                  value: 'konstructio'
                 - name: appName
-                  value: '{{workflow.parameters.appName}}'
+                  value: 'charts'
                 - name: tagName
-                  value: 'v{{steps.get-release-version-from-rc.outputs.result}}'
+                  value: 'kubefirst-v{{steps.get-release-version-from-rc.outputs.result}}'
 
         - - name: pull-sign-commit-push-gitops-template
             templateRef:
-              name: cwft-git
+              name: cwft-git-v2
               template: pull-sign-commit-push-gitops-template
               clusterScope: true
             arguments:
@@ -143,10 +149,9 @@ spec:
                   value: 'set released macro chart for kubefirst - {{steps.get-release-version-from-rc.outputs.result}}'
                 - name: nextChartVersion
                   value: '{{steps.get-release-version-from-rc.outputs.result}}'
-
         - - name: pull-sign-commit-push-kubefirst
             templateRef:
-              name: cwft-git
+              name: cwft-git-v2
               template: pull-sign-commit-push-kubefirst
               clusterScope: true
             arguments:
@@ -163,41 +168,37 @@ spec:
                 - name: environment
                   value: "development"
 
-        - - name: increment-chart-minor
+        - - name: set-environment-version-for-macro-chart
             templateRef:
-              name: cwft-helm
-              template: increment-chart-minor
+              name: cwft-helm-v2
+              template: set-environment-version-for-macro-chart
               clusterScope: true
             arguments:
               artifacts:
                 - name: repo-source
-                  from: '{{steps.commit-release-chart-increment.outputs.artifacts.repo-source}}'
+                  from: '{{steps.checkout.outputs.artifacts.repo-source}}'
               parameters:
-                - name: appName
-                  value: '{{workflow.parameters.appName}}'
-                - name: chartDir
-                  value: 'charts/kubefirst'
+                - name: fullChartPath
+                  value: '{{workflow.parameters.gitopsDestinationFile}}'
                 - name: chartVersion
                   value: '{{steps.get-release-version-from-rc.outputs.result}}'
+                - name: environment
+                  value: '{{workflow.parameters.environment}}'
 
-        - - name: commit-bumped-version-
+        - - name: commit
             templateRef:
-              name: cwft-git
-              template: pull-commit-push
+              name: cwft-git-v2
+              template: pull-commit-sign-push
               clusterScope: true
             arguments:
               artifacts:
                 - name: repo-source
-                  from: '{{steps.increment-chart-minor.outputs.artifacts.repo-source}}'
+                  from: '{{steps.set-environment-version-for-macro-chart.outputs.artifacts.repo-source}}'
               parameters:
                 - name: repoName
-                  value: '{{workflow.parameters.appName}}'
+                  value: 'gitops'
                 - name: gitUrlNoProtocol
                   value: '{{workflow.parameters.gitUrlNoProtocol}}'
                 - name: commitMessage
-                  # Please, be careful updating this message, it must comply with:
-                  # github skip ci rule: https://github.blog/changelog/2021-02-08-github-actions-skip-pull-request-and-push-workflows-with-skip-ci/
-                  # github skip ci rule: https://docs.github.com/en/actions/managing-workflow-runs/skipping-workflow-runs
-                  # gitlab skip ci rule: https://devops.stackexchange.com/questions/6809/is-there-a-ci-skip-option-in-gitlab-ci
-                  # in case, the rule is disbaled or don't work this step will create a circular trigger of builds and bumps of version.
-                  value: "[skip ci] [CI SKIP] bumping kubefirst chart to chart version {{steps.get-release-version-from-rc.outputs.result}}\n\nskip-checks:true"
+                  value: 'setting kubefirst {{workflow.parameters.environment}} to chart version {{steps.get-macro-chart-version.outputs.result}}-rc.{{workflow.parameters.shortSha}}'
+
