@@ -74,7 +74,7 @@ spec:
                 - name: appName
                   value: '{{workflow.parameters.appName}}'
                 - name: chartDir
-                  value: 'charts/{{workflow.parameters.appName}}'
+                  value: 'charts/kubefirst'
                 - name: chartVersion
                   value: '{{steps.get-release-version-from-rc.outputs.result}}'
 
@@ -165,8 +165,6 @@ spec:
                   value: 'set next macro chart for kubefirst - {{steps.get-release-version-from-rc.outputs.result}}'
                 - name: chartVersion
                   value: '{{steps.get-release-version-from-rc.outputs.result}}'
-                - name: environment
-                  value: "development"
 
         - - name: set-environment-version-for-macro-chart
             templateRef:
@@ -200,5 +198,5 @@ spec:
                 - name: gitUrlNoProtocol
                   value: '{{workflow.parameters.gitUrlNoProtocol}}'
                 - name: commitMessage
-                  value: 'setting kubefirst {{workflow.parameters.environment}} to chart version {{steps.get-macro-chart-version.outputs.result}}-rc.{{workflow.parameters.shortSha}}'
+                  value: 'setting kubefirst {{workflow.parameters.environment}} to chart version {{steps.get-macro-chart-version.outputs.result}}'
 

@@ -30,5 +30,7 @@ jobs:
             -p branch="${GITHUB_REF_NAME}" \
             -p environment="production" \
             -p gitUrlNoProtocol="git@github.com:${GITHUB_REPOSITORY_OWNER_PART_SLUG}" \
+            -p gitopsSourceFile="registry/environments/staging/kubefirst.yaml" \
+            -p gitopsDestinationFile="registry/environments/production/kubefirst.yaml" \
             -p shortSha="${GITHUB_SHA_SHORT}" \
             --wait --log
