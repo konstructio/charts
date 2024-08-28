@@ -165,6 +165,8 @@ spec:
                   value: 'set next macro chart for kubefirst - {{steps.get-release-version-from-rc.outputs.result}}'
                 - name: chartVersion
                   value: '{{steps.get-release-version-from-rc.outputs.result}}'
+                - name: environment
+                  value: "unused"
 
         - - name: set-environment-version-for-macro-chart
             templateRef:
