@@ -57,7 +57,7 @@ spec:
         - - name: pull-sign-commit-push-gitops
             templateRef:
               name: cwft-git-v2
-              template: pull-sign-commit-push-gitops
+              template: pull-sign-commit-push-gitops-kubefirst
               clusterScope: true
             arguments:
               artifacts:
@@ -65,7 +65,7 @@ spec:
                   from: '{{steps.checkout.outputs.artifacts.repo-source}}'
               parameters:
                 - name: appName
-                  value: 'gitops'
+                  value: 'kubefirst'
                 - name: chartVersion
                   value: '{{steps.get-version.outputs.result}}'
                 - name: commitMessage
