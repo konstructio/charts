@@ -1,6 +1,6 @@
 console:
   domain: kubefirst.dev
 global:
-  kubefirstVersion: v2.5.2-rc0
+  kubefirstVersion: v2.5.1
 kubefirst-api-ee:
   existingSecret: kubefirst-initial-secrets
