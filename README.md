@@ -3,9 +3,9 @@
 
 ## Bump Macro Chart
 
-1. adjust [console version](https://github.com/kubefirst/charts/blob/main/charts/kubefirst/Chart.yaml#L5) (if needed)
-2. adjust [kubefirst-api version](https://github.com/kubefirst/charts/blob/main/charts/kubefirst/Chart.yaml#L8) (if needed)
-3. adjust [macro chart version](https://github.com/kubefirst/charts/blob/main/charts/kubefirst/Chart.yaml#L16)
+1. adjust [console version](https://github.com/konstructio/charts/blob/main/charts/kubefirst/Chart.yaml#L5) (if needed)
+2. adjust [kubefirst-api version](https://github.com/konstructio/charts/blob/main/charts/kubefirst/Chart.yaml#L8) (if needed)
+3. adjust [macro chart version](https://github.com/konstructio/charts/blob/main/charts/kubefirst/Chart.yaml#L16)
 4. generate helm package
 
 ```bash 
@@ -19,7 +19,7 @@ helm dependency update ./charts/kubefirst
 Run the following commands
 
 ```bash 
-helm repo add kubefirst https://charts.kubefirst.com
+helm repo add konstruct https://charts.konstruct.io
 helm repo update 
 ```
 
@@ -27,5 +27,5 @@ helm repo update
 
 replace <version> with the desired version  
 ```bash
-helm install kubefirst --create-namespace --version <version> kubefirst/kubefirst
+helm install kubefirst --create-namespace --version <version> konstruct/kubefirst
 ```
