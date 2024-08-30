@@ -1,23 +1,19 @@
-name: colony-rc-publish
-
-on:
-  push:
-    tags:
-      - 'colony-v*-rc*'
-
+name: colony-release
 env:
   ARGO_NAMESPACE: argo
   ARGO_VERSION: v3.4.1
 
+on: workflow_dispatch
+
 jobs:
-  deliver-rc-chart:
+  release:
     runs-on: self-hosted
     steps:
       - name: checkout repository
         uses: actions/checkout@v4
       - name: inject slug/short variables
         uses: rlespinasse/github-slug-action@v4
-      - name: publish colony image and chart
+      - name: release colony
         run: |
           echo "Install argo"
           # Download the binary
@@ -28,11 +24,13 @@ jobs:
           chmod +x argo-linux-amd64
           echo "commit sha ${GITHUB_SHA}"
           ./argo-linux-amd64 version --short
-          ./argo-linux-amd64 submit .argo/colony-publish-rc-chart.yaml \
-            --generate-name="${GITHUB_REPOSITORY_NAME_PART}-set-rc-versions-${GITHUB_REF_NAME}-" \
+          ./argo-linux-amd64 submit .argo/colony-release.yaml \
+            --generate-name="${GITHUB_REPOSITORY_NAME_PART}-release-${GITHUB_SHA_SHORT}-" \
             -p appName="${GITHUB_REPOSITORY_NAME_PART}" \
-            -p branch="main" \
+            -p branch="${GITHUB_REF_NAME}" \
+            -p environment="production" \
             -p gitUrlNoProtocol="git@github.com:${GITHUB_REPOSITORY_OWNER_PART_SLUG}" \
-            -p prefix="colony-v" \
-            -p tag="${GITHUB_REF_NAME}" \
+            -p gitopsSourceFile="registry/environments/staging/colony.yaml" \
+            -p gitopsDestinationFile="registry/environments/production/colony.yaml" \
+            -p shortSha="${GITHUB_SHA_SHORT}" \
             --wait --log
