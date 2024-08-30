@@ -36,10 +36,10 @@ spec:
                 - name: gitopsSourceFile
                   value: '{{workflow.parameters.gitopsSourceFile}}'
 
-        - - name: set-environment-version-for-macro-chart
+        - - name: set-environment-version-for-macro-chart-colony
             templateRef:
               name: cwft-helm-v2
-              template: set-environment-version-for-macro-chart
+              template: set-environment-version-for-macro-chart-colony
               clusterScope: true
             arguments:
               artifacts:
@@ -61,7 +61,7 @@ spec:
             arguments:
               artifacts:
                 - name: repo-source
-                  from: '{{steps.set-environment-version-for-macro-chart.outputs.artifacts.repo-source}}'
+                  from: '{{steps.set-environment-version-for-macro-chart-colony.outputs.artifacts.repo-source}}'
               parameters:
                 - name: repoName
                   value: 'gitops'
