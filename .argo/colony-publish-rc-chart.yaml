@@ -1,0 +1,76 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Workflow
+metadata:
+  namespace: argo
+spec:
+  entrypoint: main
+  serviceAccountName: argo-server
+  templates:
+    - name: main
+      steps:
+        - - name: checkout
+            templateRef:
+              name: cwft-git-v2
+              template: checkout-with-gitops-for-charts
+              clusterScope: true
+            arguments:
+              parameters:
+                - name: appName
+                  value: '{{workflow.parameters.appName}}'
+                - name: branch
+                  value: '{{workflow.parameters.branch}}'
+                - name: gitUrlNoProtocol
+                  value: '{{workflow.parameters.gitUrlNoProtocol}}'
+
+        - - name: get-version
+            templateRef:
+              name: cwft-ci-v2
+              template: strip-tag-prefix
+              clusterScope: true
+            arguments:
+              artifacts:
+                - name: repo-source
+                  from: '{{steps.checkout.outputs.artifacts.repo-source}}'
+              parameters:
+                - name: prefix
+                  value: '{{workflow.parameters.prefix}}'
+                - name: tag
+                  value: '{{workflow.parameters.tag}}'
+
+        - - name: pull-sign-commit-push-gitops-colony
+            templateRef:
+              name: cwft-git-v2
+              template: pull-sign-commit-push-gitops-colony
+              clusterScope: true
+            arguments:
+              artifacts:
+                - name: repo-source
+                  from: '{{steps.checkout.outputs.artifacts.repo-source}}'
+              parameters:
+                - name: appName
+                  value: 'colony'
+                - name: chartVersion
+                  value: '{{steps.get-version.outputs.result}}'
+                - name: commitMessage
+                  value: 'set next macro chart for colony - {{steps.get-version.outputs.result}}'
+                - name: environment
+                  value: 'development'
+
+        - - name: pull-sign-commit-push-colony
+            templateRef:
+              name: cwft-git-v2
+              template: pull-sign-commit-push-colony
+              clusterScope: true
+            arguments:
+              artifacts:
+                - name: repo-source
+                  from: '{{steps.checkout.outputs.artifacts.repo-source}}'
+              parameters:
+                - name: appName
+                  value: 'colony'
+                - name: commitMessage
+                  value: 'set next macro chart for colony - {{steps.get-version.outputs.result}}'
+                - name: chartVersion
+                  value: '{{steps.get-version.outputs.result}}'
+                - name: environment
+                  value: "development"
