@@ -8,8 +8,8 @@ dependencies:
   version: 0.103.0
 - name: kubefirst-api-ee
   repository: https://charts.konstruct.io
-  version: 1.5.0-rc.b2d0dad
+  version: 1.5.0-rc.d0802fe
 description: kubefirst helm chart
 name: kubefirst
 type: application
-version: 2.5.9-rc1
+version: 2.5.9-rc2
