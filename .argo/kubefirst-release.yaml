@@ -200,5 +200,5 @@ spec:
                 - name: gitUrlNoProtocol
                   value: '{{workflow.parameters.gitUrlNoProtocol}}'
                 - name: commitMessage
-                  value: 'setting kubefirst {{workflow.parameters.environment}} to chart version {{steps.get-macro-chart-version.outputs.result}}'
+                  value: 'setting kubefirst {{workflow.parameters.environment}} to chart version {{steps.get-release-version-from-rc.outputs.result}}'
 
