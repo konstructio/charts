@@ -85,9 +85,8 @@ spec:
               clusterScope: true
             arguments:
               artifacts:
-                - name: repo-source #!!!!!!
-                  from: '{{steps.set-colony-version-in-values-yaml.outputs.artifacts.repo-source}}'
-                  # from: '{{steps.set-macro-chart-version.outputs.artifacts.repo-source}}'
+                - name: repo-source
+                  from: '{{steps.set-macro-chart-version.outputs.artifacts.repo-source}}'
               parameters:
                 - name: repoName
                   value: 'charts'
