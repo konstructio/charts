@@ -85,9 +85,8 @@ spec:
               clusterScope: true
             arguments:
               artifacts:
-                - name: repo-source #!!!!!!
-                  from: '{{steps.set-colony-version-in-values-yaml.outputs.artifacts.repo-source}}'
-                  # from: '{{steps.set-macro-chart-version.outputs.artifacts.repo-source}}'
+                - name: repo-source
+                  from: '{{steps.set-macro-chart-version.outputs.artifacts.repo-source}}'
               parameters:
                 - name: repoName
                   value: 'charts'
@@ -168,10 +167,10 @@ spec:
                 - name: environment
                   value: "unused"
 
-        - - name: set-environment-version-for-macro-chart
+        - - name: set-environment-version-for-macro-chart-colony
             templateRef:
               name: cwft-helm-v2
-              template: set-environment-version-for-macro-chart
+              template: set-environment-version-for-macro-chart-colony
               clusterScope: true
             arguments:
               artifacts:
@@ -193,7 +192,7 @@ spec:
             arguments:
               artifacts:
                 - name: repo-source
-                  from: '{{steps.set-environment-version-for-macro-chart.outputs.artifacts.repo-source}}'
+                  from: '{{steps.set-environment-version-for-macro-chart-colony.outputs.artifacts.repo-source}}'
               parameters:
                 - name: repoName
                   value: 'gitops'
