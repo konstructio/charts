@@ -132,22 +132,6 @@ spec:
                 - name: tagName
                   value: 'colony-v{{steps.get-release-version-from-rc.outputs.result}}'
 
-        - - name: pull-sign-commit-push-gitops-template
-            templateRef:
-              name: cwft-git-v2
-              template: pull-sign-commit-push-gitops-template
-              clusterScope: true
-            arguments:
-              artifacts:
-                - name: repo-source
-                  from: '{{steps.checkout.outputs.artifacts.repo-source}}'
-              parameters:
-                - name: appName
-                  value: 'gitops-template'
-                - name: commitMessage
-                  value: 'set released macro chart for colony - {{steps.get-release-version-from-rc.outputs.result}}'
-                - name: nextChartVersion
-                  value: '{{steps.get-release-version-from-rc.outputs.result}}'
         - - name: pull-sign-commit-push-colony
             templateRef:
               name: cwft-git-v2
