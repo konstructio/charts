@@ -1,0 +1,38 @@
+name: kubefirst-rc-publish
+
+on:
+  push:
+    tags:
+      - 'kubefirst-pro-v*-rc*'
+
+env:
+  ARGO_NAMESPACE: argo
+  ARGO_VERSION: v3.4.1
+
+jobs:
+  deliver-rc-chart:
+    runs-on: self-hosted
+    steps:
+      - name: checkout repository
+        uses: actions/checkout@v4
+      - name: inject slug/short variables
+        uses: rlespinasse/github-slug-action@v4
+      - name: publish kubefirst chart
+        run: |
+          echo "Install argo"
+          # Download the binary
+          curl -sLO https://github.com/argoproj/argo-workflows/releases/download/${ARGO_VERSION}/argo-linux-amd64.gz
+          # Unzip
+          gunzip argo-linux-amd64.gz
+          # Make binary executable
+          chmod +x argo-linux-amd64
+          echo "commit sha ${GITHUB_SHA}"
+          ./argo-linux-amd64 version --short
+          ./argo-linux-amd64 submit .argo/kubefirst-pro-publish-rc-chart.yaml \
+            --generate-name="${GITHUB_REPOSITORY_NAME_PART}-set-rc-versions-${GITHUB_REF_NAME}-" \
+            -p appName="${GITHUB_REPOSITORY_NAME_PART}" \
+            -p branch="main" \
+            -p gitUrlNoProtocol="git@github.com:${GITHUB_REPOSITORY_OWNER_PART_SLUG}" \
+            -p prefix="kubefirst-pro-v" \
+            -p tag="${GITHUB_REF_NAME}" \
+            --wait --log
