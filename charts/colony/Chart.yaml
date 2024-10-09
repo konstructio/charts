@@ -6,4 +6,4 @@ dependencies:
 description: Colony helm chart
 name: colony
 type: application
-version: 0.0.6-rc2
+version: 0.1.0-rc0
