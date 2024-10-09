@@ -1,9 +1,5 @@
 console:
   domain: kubefirst.dev
 global:
-  consoleVersion: v2.5.12-rc13
-  kubefirst-apiVersion: v2.6.2-rc7
   kubefirst-pro-apiVersion: v2.6.2-rc20
   kubefirst-pro-uiVersion: v2.6.2-rc21
-kubefirst-pro-api:
-  existingSecret: kubefirst-initial-secrets
