@@ -1,7 +1,7 @@
 console:
   domain: kubefirst.dev
 global:
-  consoleVersion: v2.5.12-rc13
+  consoleVersion: v2.6.2-rc19
   kubefirst-api-eeVersion: v2.6.1-rc2
   kubefirst-apiVersion: v2.6.2-rc18
   kubefirstVersion: v2.6.1
