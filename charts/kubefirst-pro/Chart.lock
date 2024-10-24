@@ -1,9 +1,9 @@
 dependencies:
 - name: kubefirst-pro-api
   repository: https://charts.konstruct.io
-  version: 0.1.0-rc.b8fb661
+  version: 0.1.0-rc.c0edf2d
 - name: kubefirst-pro-ui
   repository: https://charts.konstruct.io
   version: 0.1.0-rc.54cc4e0
-digest: sha256:c3481522e7b78f6ca4b87601fc43188befc083c347d33f29428697042e88549f
-generated: "2024-10-24T01:29:31.952889261Z"
+digest: sha256:c6392953c8a2a4110ed88282f212426fd8d567723e397adf8d8e079e1a9225ba
+generated: "2024-10-24T01:38:40.076403456Z"
