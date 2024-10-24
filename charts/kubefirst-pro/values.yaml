@@ -1,6 +1,6 @@
 console:
   domain: kubefirst.dev
 global:
-  kubefirst-pro-apiVersion: v2.6.2-rc50
+  kubefirst-pro-apiVersion: v2.6.2-rc53
   kubefirst-pro-uiVersion: v2.6.2-rc52
   kubefirstVersion: v2.6.2-rc22
