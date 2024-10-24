@@ -159,7 +159,7 @@ spec:
             arguments:
               artifacts:
                 - name: repo-source
-                  from: '{{steps.commit-release-chart-increment-kubefirst-pro.outputs.artifacts.repo-source}}'
+                  from: '{{steps.commit-release-chart-increment.outputs.artifacts.repo-source}}'
               parameters:
                 - name: appName
                   value: 'charts'
