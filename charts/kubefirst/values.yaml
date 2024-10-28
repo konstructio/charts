@@ -3,7 +3,7 @@ console:
 global:
   consoleVersion: v2.6.2-rc22
   kubefirst-api-eeVersion: v2.6.1-rc2
-  kubefirst-apiVersion: v2.7.1-rc3
+  kubefirst-apiVersion: v2.7.2-rc1
   kubefirstVersion: v2.7.1
 kubefirst-api-ee:
   existingSecret: kubefirst-initial-secrets
