@@ -3,4 +3,4 @@ console:
 global:
   kubefirst-pro-apiVersion: v2.6.2-rc53
   kubefirst-pro-uiVersion: v2.6.2-rc52
-  kubefirstVersion: v2.7.0
+  kubefirstVersion: v2.7.1
