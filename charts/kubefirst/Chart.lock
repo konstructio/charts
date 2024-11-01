@@ -4,9 +4,9 @@ dependencies:
   version: 2.61.0
 - name: kubefirst-api
   repository: https://charts.konstruct.io
-  version: 0.114.0
+  version: 0.115.0-rc.175e41b
 - name: kubefirst-api-ee
   repository: https://charts.konstruct.io
   version: 1.9.0
-digest: sha256:6bc06862ab2315f6041e2491555a7baf5320b0beb7d6cb27b2a844f8e5d488cc
-generated: "2024-10-28T23:48:53.795669839Z"
+digest: sha256:89986ee423185ed367c67550fd38c1e14db0e63940fd011463c4e6bfd2f37d8f
+generated: "2024-11-01T21:49:25.668787285Z"
