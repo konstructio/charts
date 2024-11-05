@@ -5,11 +5,11 @@ dependencies:
   version: 2.61.0
 - name: kubefirst-api
   repository: https://charts.konstruct.io
-  version: 0.115.0-rc.175e41b
+  version: 0.115.0-rc.ca1b5ca
 - name: kubefirst-api-ee
   repository: https://charts.konstruct.io
   version: 1.9.0
 description: kubefirst helm chart
 name: kubefirst
 type: application
-version: 2.7.4-rc1
+version: 2.7.4-rc2
