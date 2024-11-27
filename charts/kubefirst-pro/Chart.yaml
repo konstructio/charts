@@ -9,4 +9,4 @@ dependencies:
 description: kubefirst pro helm chart
 name: kubefirst-pro
 type: application
-version: 2.7.6-rc2
+version: 2.7.5
