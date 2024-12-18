@@ -8,5 +8,3 @@ global:
   kubefirstVersion: v2.7.9
 kubefirst-api:
   nameOverride: api
-kubefirst-api-ee:
-  existingSecret: kubefirst-initial-secrets
