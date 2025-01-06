@@ -2,11 +2,11 @@ apiVersion: v2
 dependencies:
 - name: kubefirst-pro-api
   repository: https://charts.konstruct.io
-  version: 0.10.0-rc.466ef79
+  version: 0.10.0
 - name: kubefirst-pro-ui
   repository: https://charts.konstruct.io
   version: 0.13.0
 description: kubefirst pro helm chart
 name: kubefirst-pro
 type: application
-version: 2.7.10-rc23
+version: 2.7.10-rc24
