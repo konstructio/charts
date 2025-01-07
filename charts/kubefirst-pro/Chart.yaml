@@ -5,8 +5,8 @@ dependencies:
   version: 0.12.0-rc.f612575
 - name: kubefirst-pro-ui
   repository: https://charts.konstruct.io
-  version: 0.13.0
+  version: 0.14.0-rc.6363e1e
 description: kubefirst pro helm chart
 name: kubefirst-pro
 type: application
-version: 2.7.10-rc28
+version: 2.7.10-rc29
