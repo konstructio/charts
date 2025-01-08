@@ -1,5 +1,5 @@
 global:
-  kubefirst-pro-apiVersion: v2.7.10-rc28
+  kubefirst-pro-apiVersion: v2.7.10-rc30
   kubefirst-pro-uiVersion: v2.7.10-rc29
   kubefirstVersion: v2.7.9
 kubefirst-pro-api:
