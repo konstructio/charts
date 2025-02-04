@@ -12,4 +12,4 @@ dependencies:
 description: kubefirst helm chart
 name: kubefirst
 type: application
-version: 2.8.1-rc5
+version: 2.8.1
