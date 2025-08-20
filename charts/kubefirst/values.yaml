@@ -2,10 +2,10 @@ console:
   domain: kubefirst.dev
   nameOverride: console
 global:
-  consoleVersion: v2.8.5-rc5
-  kubefirst-api-eeVersion: v2.6.1-rc2
-  kubefirst-apiVersion: v2.8.5-rc6
-  kubefirstVersion: v2.8.4
+  consoleVersion: v2.9.0-rc0
+  kubefirst-api-eeVersion: v2.9.0-rc0
+  kubefirst-apiVersion: v2.9.0-rc0
+  kubefirstVersion: v2.9.0-rc0
 kubefirst-api:
   nameOverride: api
 kubefirst-api-ee:
