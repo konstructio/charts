@@ -5,7 +5,7 @@ global:
   consoleVersion: v2.9.1-rc4
   kubefirst-api-eeVersion: v2.9.1-rc1
   kubefirst-apiVersion: v2.9.1-rc5
-  kubefirstVersion: v2.9.1-rc1
+  kubefirstVersion: v2.9.1
 kubefirst-api:
   nameOverride: api
 kubefirst-api-ee:
