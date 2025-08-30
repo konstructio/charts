@@ -2,11 +2,11 @@ apiVersion: v2
 dependencies:
 - name: console
   repository: https://charts.konstruct.io
-  version: 2.71.0
+  version: 2.72.0-rc.e411f26
 - name: kubefirst-api
   repository: https://charts.konstruct.io
   version: 0.134.0
 description: kubefirst helm chart
 name: kubefirst
 type: application
-version: 2.9.2-rc0
+version: 2.9.2-rc1
