@@ -1,6 +1,6 @@
 global:
   kubefirst-pro-apiVersion: v2.10.2-rc15
-  kubefirst-pro-uiVersion: v2.10.2-rc14
+  kubefirst-pro-uiVersion: v2.10.2-rc16
   kubefirstVersion: v2.10.1
 kubefirst-pro-api:
   nameOverride: pro-api
