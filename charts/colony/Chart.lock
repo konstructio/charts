@@ -1,6 +1,6 @@
 dependencies:
 - name: colony-agent
   repository: https://charts.konstruct.io
-  version: 0.14.0-rc.9f05151
-digest: sha256:7f405089e9726e890242a1ad64f208e2ce7a8ecbbcf4f16188f15f4ce8d3f841
-generated: "2025-10-19T13:35:32.087313999Z"
+  version: 0.14.0-rc.0bb4bc6
+digest: sha256:699773aa24e976f1d7bf76605e5a754e5d8ca489d5e149dddc396b9de8d66b14
+generated: "2025-10-19T14:38:40.482801642Z"
