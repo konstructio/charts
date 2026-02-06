@@ -2,8 +2,8 @@ apiVersion: v2
 dependencies:
 - name: colony-agent
   repository: https://charts.konstruct.io
-  version: 0.14.0-rc.95668e3
+  version: 0.14.0-rc.badc8ee
 description: Colony helm chart
 name: colony
 type: application
-version: 0.2.2-rc147
+version: 0.2.2-rc148
